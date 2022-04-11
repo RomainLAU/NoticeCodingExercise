@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Time</title>
+</head>
+<body>
+    <button id="getTime">Get Time !</button>
+
+    <script>
+        let getTimeButton = document.querySelector('#getTime')
+
+        getTimeButton.addEventListener('click', () => {
+            fetch('http://localhost:3000/time', () => {
+                mode: 'no-cors'
+            }).then((response) => {
+                if (response.ok) {
+                    return response.json()
+                }
+                return Promise.reject(response)
+            }).then((data) => {
+                alert(data)
+            })
+        })
+    </script>
+</body>
+</html>
