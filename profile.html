@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+    <h1>Profile</h1>
+    <input type="text" id="inputName">
+    <button type="submit" id="saveButton">Save it !</button>
+    <p id="displayName"></p>
+
+    <script>
+        let inputName = document.querySelector('#inputName')
+        let displayName = document.querySelector('#displayName')
+        let saveButton = document.querySelector('#saveButton')
+
+        saveButton.addEventListener('click', () => {
+            displayName.innerHTML = inputName.value
+            localStorage.setItem('name', inputName.value)
+        })
+
+        if (localStorage.getItem('name')) {
+            displayName.innerHTML = localStorage.getItem('name')
+        }
+    </script>
+</body>
+</html>

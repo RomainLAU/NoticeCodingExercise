@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
     <h1>Notice Coding Exercise</h1>
 
-    <button>Change Title !</button>
+    <button id="changeTitleButton">Change Title !</button>
 
-    <script src="script.js"></script>
+    <script>
+        let title = document.querySelector('h1')
+        let changeTitleButton = document.querySelector('#changeTitleButton')
+
+        let isTitleAmazing = false
+
+        changeTitleButton.addEventListener('click', () => {
+
+            if (isTitleAmazing === false) {
+                title.textContent = 'An Amazing Test !'
+                isTitleAmazing = true
+            } else {
+                title.textContent = 'Notice Coding Exercise'
+                isTitleAmazing = false
+            }
+        })
+    </script>
 </body>
 </html>
